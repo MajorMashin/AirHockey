@@ -82,13 +82,10 @@ public class ObjectBuilder {
         final int startVertex = offset / FLOATS_PER_VERTEX;
         final int numVertices = sizeOfCircleInVertices(numPoints);
 
-        // Center point of fan
         vertexData[offset++] = circle.center.x;
         vertexData[offset++] = circle.center.y;
         vertexData[offset++] = circle.center.z;
 
-        // Fan around center point. <= is used because we want to generate
-        // the point at the starting angle twice to complete the fan.
         for (int i = 0; i <= numPoints; i++) {
             float angleInRadians =
                 ((float) i / (float) numPoints)
